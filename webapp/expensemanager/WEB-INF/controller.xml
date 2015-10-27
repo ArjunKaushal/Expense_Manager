@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <!-- The controller elements that are common to all OFBiz components
+         can be found in the following xml file. A component can override the
+         elements found in the common-controller.xml file. -->
+    <include location="component://common/webcommon/WEB-INF/common-controller.xml"/>
+
+    <description>ExpenseManager Component Site Configuration File</description>
+
+    <!-- Events to run on every request before security (chains exempt) -->
+    <!--
+    <preprocessor>
+    </preprocessor>
+    -->
+    <!-- Events to run on every request after all other processing (chains exempt) -->
+    <!--
+    <postprocessor>
+        <event name="test" type="java" path="org.ofbiz.webapp.event.TestEvent" invoke="test"/>
+    </postprocessor>
+    -->
+
+    <!-- Request Mappings -->
+    <request-map uri="main"><security https="true" auth="true"/><response name="success" type="view" value="main"/></request-map>
+    <request-map uri="transaction"><security https="true" auth="true"/><response name="success" type="view" value="transaction"/></request-map>
+    <request-map uri="income"><security https="true" auth="true"/><response name="success" type="view" value="income"/></request-map>
+    <request-map uri="expense"><security https="true" auth="true"/><response name="success" type="view" value="expense"/></request-map>
+    <request-map uri="activity"><security https="true" auth="true"/><response name="success" type="view" value="activity"/></request-map>
+    <request-map uri="reminder"><security https="true" auth="true"/><response name="success" type="view" value="reminder"/></request-map>
+    <request-map uri="register"><security https="true" auth="false"/><response name="success" type="view" value="register"/></request-map>
+    <request-map uri="createExpenseUser">
+        <security https="true" auth="false"/>
+        <event type="service" invoke="createExpenseUser"/>
+        <response name="success" type="view" value="main"/>
+        <response name="error" type="view" value="register"/>
+    </request-map>
+    <!-- View Mappings -->
+    <view-map name="main" type="screen" page="component://expensemanager/widget/ExpenseManagerScreens.xml#main"/>
+    <view-map name="transaction" type="screen" page="component://expensemanager/widget/ExpenseManagerScreens.xml#transaction"/>
+    <view-map name="income" type="screen" page="component://expensemanager/widget/ExpenseManagerScreens.xml#income"/>
+    <view-map name="expense" type="screen" page="component://expensemanager/widget/ExpenseManagerScreens.xml#expense"/>
+    <view-map name="activity" type="screen" page="component://expensemanager/widget/ExpenseManagerScreens.xml#activity"/>
+    <view-map name="reminder" type="screen" page="component://expensemanager/widget/ExpenseManagerScreens.xml#reminder"/>
+    <view-map name="register" type="screen" page="component://expensemanager/widget/ExpenseManagerScreens.xml#register"/>
+</site-conf>

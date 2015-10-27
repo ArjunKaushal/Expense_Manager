@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<simple-methods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/simple-methods-v2.xsd">
+    <simple-method method-name="createExpenseUser" short-description="Create Expense User"  login-required="false">
+        <set-service-fields service-name="createUserLogin" map="parameters" to-map="createUlInMap"/>
+        <set-service-fields service-name="addUserLoginToSecurityGroup" map="parameters" to-map="createSecPerMap"/>
+        <set-service-fields service-name="createPerson" map="parameters" to-map="createPersonCtx"/>
+        <call-service service-name="createPerson" in-map-name="createPersonCtx">
+            <result-to-field result-name="partyId" field="createUlInMap.partyId"/>
+        </call-service>
+        
+        <!-- call the service with the system account to get around security constraints for this special create -->
+        <entity-one entity-name="UserLogin" value-field="createUlInMap.userLogin" auto-field-map="false">
+            <field-map field-name="userLoginId" value="system"/>
+        </entity-one>
+
+        <call-service service-name="createUserLogin" in-map-name="createUlInMap"/>
+        <entity-one entity-name="UserLogin" value-field="newUserLogin"/>
+        
+        <call-service service-name="addUserLoginToSecurityGroup" in-map-name="createSecPerMap"/>
+
+        <field-to-result field="newUserLogin"/>
+        <field-to-result field="createUlInMap.partyId" result-name="partyId"/>
+        
+    </simple-method>
+</simple-methods>

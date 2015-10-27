@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="EXPENSEMANAGER_ADMIN"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="EXPENSEMANAGER_CREATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="EXPENSEMANAGER_DELETE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="EXPENSEMANAGER_UPDATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="EXPENSEMANAGER_VIEW"/>
+    <SecurityGroupPermission groupId="VIEWADMIN" permissionId="EXPENSEMANAGER_VIEW"/>
+    <SecurityGroupPermission groupId="BIZADMIN" permissionId="EXPENSEMANAGER_ADMIN"/>
+</entity-engine-xml>

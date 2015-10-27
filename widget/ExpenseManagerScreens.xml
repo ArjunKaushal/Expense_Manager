@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+    <screen name="main">
+        <section>
+            <actions>
+                <!-- this highlights the selected menu-item with name "main" -->
+            </actions>
+            <widgets>
+                <decorator-screen name="ExpenseManagerCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                      <platform-specific><html><html-template location="component://expensemanager/webapp/expensemanager/includes/Dashbord.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="transaction">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/><!-- this highlights the selected menu-item with name "main" -->
+            </actions>
+            <widgets>
+                <decorator-screen name="ExpenseManagerCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                      <platform-specific><html><html-template location="component://expensemanager/webapp/expensemanager/includes/Transaction.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="income">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/><!-- this highlights the selected menu-item with name "main" -->
+            </actions>
+            <widgets>
+                <decorator-screen name="ExpenseManagerCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                      <platform-specific><html><html-template location="component://expensemanager/webapp/expensemanager/includes/Income.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="expense">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/><!-- this highlights the selected menu-item with name "main" -->
+            </actions>
+            <widgets>
+                <decorator-screen name="ExpenseManagerCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                      <platform-specific><html><html-template location="component://expensemanager/webapp/expensemanager/includes/Expense.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="activity">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/><!-- this highlights the selected menu-item with name "main" -->
+            </actions>
+            <widgets>
+                <decorator-screen name="ExpenseManagerCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                      <platform-specific><html><html-template location="component://expensemanager/webapp/expensemanager/includes/Activity.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="reminder">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/><!-- this highlights the selected menu-item with name "main" -->
+            </actions>
+            <widgets>
+                <decorator-screen name="ExpenseManagerCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                      <platform-specific><html><html-template location="component://expensemanager/webapp/expensemanager/includes/Reminder.ftl"/></html></platform-specific>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="register">
+        <section>
+            <actions>                
+            </actions>
+            <widgets>
+                <decorator-screen name="ExpenseManagerRegisterDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                      
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+</screens>
